@@ -10,3 +10,5 @@
 * React Styled Component
 
 _More updates will be updated.._
+
+Use [Wiki](https://github.com/junlee91/uber/wiki) for development note.
