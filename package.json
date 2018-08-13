@@ -7,10 +7,22 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/helmet": "^0.0.38",
+    "@types/morgan": "^1.7.35",
     "@types/node": "^10.5.8",
     "nodemon": "^1.18.3",
     "ts-node": "^7.0.1",
     "tslint-config-prettier": "^1.14.0",
     "typescript": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "graphql-yoga": "^1.16.0",
+    "helmet": "^3.13.0",
+    "morgan": "^1.9.0"
   }
 }
