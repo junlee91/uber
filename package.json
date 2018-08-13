@@ -1,0 +1,16 @@
+{
+  "name": "uber-clone-server",
+  "version": "1.0.0",
+  "description": "Server for Uber clone with GraphQL, Typescript, NodeJS",
+  "main": "index.js",
+  "author": "Jun",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^10.5.8",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.1",
+    "tslint-config-prettier": "^1.14.0",
+    "typescript": "^3.0.1"
+  }
+}
