@@ -1,3 +1,20 @@
+type Chat {
+  id: Int!
+  messages: [Message]!
+  participant: [User]!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Message {
+  id: Int!
+  text: String!
+  chat: Chat!
+  user: User!
+  createdAt: String!
+  updatedAt: String
+}
+
 type Place {
   id: Int!
   name: String!
@@ -14,7 +31,7 @@ type Ride {
   status: String!
   pickUpAddress: String!
   pickUpLat: Float!
-  pickUpLng: Floar!
+  pickUpLng: Float!
   dropOffAddress: String!
   dropOffLat: Float!
   dropOffLng: Float!
@@ -43,6 +60,8 @@ type User {
   lastLgn: Float
   lastLat: Float
   lastOrientation: Float
+  chat: Chat
+  messages: [Message]
   createdAt: String!
   updatedAt: String
 }
