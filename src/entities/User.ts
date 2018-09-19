@@ -7,10 +7,10 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  ManyToOne,
-  OneToMany
 } from "typeorm";
 
 import Chat from "./Chat";
