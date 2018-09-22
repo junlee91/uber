@@ -1,9 +1,9 @@
 import Verification from "../../../entities/Verification";
-import { Resolvers } from "../../../types/resolvers";
 import {
   StartPhoneVerfificationMutationArgs,
   StartPhoneVerfificationResponse
 } from "../../../types/graph";
+import { Resolvers } from "../../../types/resolvers";
 import { sendVerificationSMS } from "../../../utils/sendSMS";
 
 const resolvers: Resolvers = {
@@ -14,19 +14,19 @@ const resolvers: Resolvers = {
     ): Promise<StartPhoneVerfificationResponse> => {
       const { phoneNumber } = args;
       try {
-        const existing_Verification = await Verification.findOne({
+        const existingVerification = await Verification.findOne({
           payload: phoneNumber
         });
-        if (existing_Verification) {
-          existing_Verification.remove();
+        if (existingVerification) {
+          existingVerification.remove();
         }
-        const new_Verification = await Verification.create({
+        const newVerification = await Verification.create({
           payload: phoneNumber,
           target: "PHONE"
         }).save();
         await sendVerificationSMS(
-          new_Verification.payload,
-          new_Verification.key
+          newVerification.payload,
+          newVerification.key
         );
         return {
           ok: true,
