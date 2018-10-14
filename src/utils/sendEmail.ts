@@ -21,4 +21,4 @@ export const sendVerificationEmail = (fullName: string, key: string) => {
   const emailBody = `Verify your email by clicking <a href="http://google.com/">here</a>`;
 
   return sendEmail(emailSubject, emailBody);
-}
+};
