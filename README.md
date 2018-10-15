@@ -8,5 +8,7 @@
 * JavaScript (ES6)
 * React (16)
 * React Styled Component
+* Twillio
+* Mailgun
 
 [Wiki](https://github.com/junlee91/uber/wiki) for development note.
