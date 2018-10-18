@@ -15,8 +15,8 @@ import {
 
 import Chat from "./Chat";
 import Message from "./Message";
-import Ride from './Ride';
 import Place from './Place';
+import Ride from './Ride';
 
 const BCRYPT_ROUNDS = 10;
 
