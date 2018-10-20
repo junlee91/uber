@@ -13,7 +13,7 @@ type User {
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
-  lastLgn: Float
+  lastLng: Float
   lastLat: Float
   lastOrientation: Float
   fbId: String

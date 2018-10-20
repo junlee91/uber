@@ -1,7 +1,7 @@
 type Chat {
   id: Int!
   messages: [Message]!
-  participant: [User]!
+  participants: [User]!
   createdAt: String!
   updatedAt: String
 }
@@ -44,6 +44,17 @@ type DeletePlaceResponse {
 type EditPlaceResponse {
   ok: Boolean!
   error: String
+}
+
+type GetMyPlacesResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
+}
+
+type Query {
+  GetMyPlaces: GetMyPlacesResponse!
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type Place {
@@ -112,10 +123,6 @@ type GetMyProfileResponse {
   user: User
 }
 
-type Query {
-  GetMyProfile: GetMyProfileResponse!
-}
-
 type ReportMovementResponse {
   ok: Boolean!
   error: String
@@ -141,7 +148,7 @@ type User {
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
-  lastLgn: Float
+  lastLng: Float
   lastLat: Float
   lastOrientation: Float
   fbId: String
