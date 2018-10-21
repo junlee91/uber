@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 import { IsEmail } from "class-validator";
 import {
   BaseEntity,
@@ -10,13 +10,13 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
 
 import Chat from "./Chat";
 import Message from "./Message";
-import Place from './Place';
-import Ride from './Ride';
+import Place from "./Place";
+import Ride from "./Ride";
 
 const BCRYPT_ROUNDS = 10;
 
@@ -40,10 +40,10 @@ class User extends BaseEntity {
   @Column({ type: "int", nullable: true })
   age: number;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   password: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   phoneNumber: string;
 
   @Column({ type: "boolean", default: false })
@@ -54,19 +54,19 @@ class User extends BaseEntity {
 
   @Column({ type: "boolean", default: false })
   isDriving: boolean;
-  
+
   @Column({ type: "boolean", default: false })
   isRiding: boolean;
-  
+
   @Column({ type: "boolean", default: false })
   isTaken: boolean;
-  
+
   @Column({ type: "double precision", default: 0 })
   lastLng: number;
-  
+
   @Column({ type: "double precision", default: 0 })
   lastLat: number;
-  
+
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
 
@@ -96,20 +96,20 @@ class User extends BaseEntity {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  public comparePassword(password: string) : Promise<boolean> {
+  public comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 
   @BeforeInsert()
   @BeforeUpdate()
-  async savePassword() : Promise<void> {
+  async savePassword(): Promise<void> {
     if (this.password) {
       const hashedPassword = await this.hashPassword(this.password);
       this.password = hashedPassword;
     }
   }
-  
-  private hashPassword(password: string) : Promise<string> {
+
+  private hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
   }
 }
