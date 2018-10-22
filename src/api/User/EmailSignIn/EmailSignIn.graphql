@@ -3,6 +3,7 @@ type EmailSignInResponse {
   error: String
   token: String
 }
- type Mutation {
+
+type Mutation {
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
 }
