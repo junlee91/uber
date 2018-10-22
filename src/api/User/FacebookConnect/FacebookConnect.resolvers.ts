@@ -13,6 +13,7 @@ const resolvers: Resolvers = {
       args: FacebookConnectMutationArgs
     ): Promise<FacebookConnectResponse> => {
       const { fbId } = args;
+      // Check users with same facebokId. If found create JWT and return.
       try {
         const existingUser = await User.findOne({ fbId });
         if (existingUser) {
@@ -30,6 +31,7 @@ const resolvers: Resolvers = {
           token: null
         };
       }
+      // FacebookId is new so create new user, create JWT and return.
       try {
         const newUser = await User.create({
           ...args,
