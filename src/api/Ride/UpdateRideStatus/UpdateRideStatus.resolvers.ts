@@ -34,10 +34,14 @@ const resolvers: Resolvers = {
                 user.save();
 
                 // Driver accepted request, create a chat room
-                await Chat.create({
+                const chat = await Chat.create({
                   driver: user,
                   passenger: ride.passenger
                 }).save();
+
+                // Chat and Ride have one to one relation
+                ride.chat = chat;
+                ride.save();
               }
             } else {
               ride = await Ride.findOne({
