@@ -1,5 +1,5 @@
 type UpdateMyProfileResponse {
-  ok: Boolean!,
+  ok: Boolean!
   error: String
 }
 
@@ -11,5 +11,5 @@ type Mutation {
     password: String
     profilePhoto: String
     age: Int
-  ) : UpdateMyProfileResponse!
+  ): UpdateMyProfileResponse!
 }
