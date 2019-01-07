@@ -41,6 +41,7 @@ const resolvers: Resolvers = {
 
                 // Chat and Ride have one to one relation
                 ride.chat = chat;
+                ride.chatId = chat.id;
                 ride.save();
               }
             } else {
