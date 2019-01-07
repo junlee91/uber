@@ -44,10 +44,13 @@ const resolvers: Resolvers = {
                 ride.save();
               }
             } else {
-              ride = await Ride.findOne({
-                id: args.rideId,
-                driver: user
-              });
+              ride = await Ride.findOne(
+                {
+                  id: args.rideId,
+                  driver: user
+                },
+                { relations: ["passenger", "driver"] }
+              );
             }
             if (ride) {
               ride.status = args.status;
