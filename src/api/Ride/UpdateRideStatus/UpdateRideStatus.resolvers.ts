@@ -26,7 +26,7 @@ const resolvers: Resolvers = {
                   id: args.rideId,
                   status: "REQUESTING"
                 },
-                { relations: ["passenger"] }  // ride will be loaded with Passenger instance
+                { relations: ["passenger", "driver"] } // ride will be loaded with Passenger instance
               );
               if (ride) {
                 ride.driver = user;
