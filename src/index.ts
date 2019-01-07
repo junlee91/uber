@@ -13,6 +13,7 @@ const GRAPHQL_ENDPOINT: string = "/graphql";
 const SUBSCRIPTION_ENDPOINT: string = "/subscription";
 
 const appOptions: Options = {
+  debug: true,
   port: PORT,
   playground: PLAYGROUND_ENDPOINT,
   endpoint: GRAPHQL_ENDPOINT,
