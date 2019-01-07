@@ -56,6 +56,18 @@ const resolvers: Resolvers = {
               ride.status = args.status;
               ride.save();
               pubSub.publish("rideUpdate", { RideStatusSubscription: ride });
+
+              if (args.status === "FINISHED") {
+                const driver = ride.driver;
+                const passenger = ride.passenger;
+
+                driver.isTaken = false;
+                passenger.isRiding = false;
+
+                driver.save();
+                passenger.save();
+              }
+
               return {
                 ok: true,
                 error: null,
